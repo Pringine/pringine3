@@ -1,0 +1,56 @@
+.home{
+    height: 100vh;
+    background: #f7f7f7;
+}
+
+.navigationbar, .footer{
+    height: 50px;
+}
+
+.create-card{
+    height: calc(100vh - 100px);
+    /* display: flex; */
+    justify-content: space-around;
+    align-items: center;
+}
+
+.card-container{
+    height: 320px;
+    width: 500px;
+    background: #FFCC00;
+    box-shadow: 5px 5px 20px 3px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    transition-duration: 0.5s;
+}
+
+.card-container:hover{
+    transition-duration: 0.5s;
+    box-shadow: 5px 5px 30px 10px rgba(0, 0, 0, 0.15);
+}
+
+.form-box{
+    margin-top: -3rem;
+}
+
+.country{
+    width: 80%;
+    margin-left: auto;
+}
+
+.card-side{
+    width: 363px;
+    height: 314px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    /* padding: 50px; */
+    /* box-sizing: border-box;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.15); */
+}
+
+.footer{
+    position: absolute;
+    bottom: 0;
+}

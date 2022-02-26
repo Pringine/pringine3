@@ -1,0 +1,53 @@
+.card-data{
+    background: transparent;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+}
+.section1, .section2{
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.card-category{
+    font-style: italic;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 28px;
+    color: #000000;
+    margin: 20px;
+}
+
+.card-img{
+    /* width: 185.05px;
+    height: 254.02px; */
+    /* left: 309px;
+    top: 364.76px; */
+}
+
+.card-amount{
+    margin: 20px;
+}
+
+.card-fiat{
+    font-weight: normal;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 29px;
+}
+
+.card-crypto{
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.provider-img{
+    width: 61px;
+    height: 61px;
+    background-color: grey;
+    margin: auto 20px 30px auto;
+}
