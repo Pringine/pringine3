@@ -29,7 +29,7 @@
 }
 
 .form-box{
-    margin-top: -3rem;
+    /* margin-top: -3rem; */
 }
 
 .country{
@@ -40,8 +40,8 @@
 .card-side{
     width: 363px;
     height: 314px;
-    background: #FFFFFF;
-    border: 1px solid rgba(0, 0, 0, 0.15);
+    /* background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.15); */
     /* display: flex;
     justify-content: center;
     align-items: center; */

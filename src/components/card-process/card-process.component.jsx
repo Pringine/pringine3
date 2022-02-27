@@ -1,10 +1,10 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
 import ProgressBar from 'react-bootstrap/ProgressBar';
-import './card-process.style.css'
+import './card-process.style.css';
 
-import mtn from '../../assets/img/mtn.png'
-import barcode from '../../assets/img/barcode.png'
+import mtn from '../../assets/img/mtn.png';
+import barcode from '../../assets/img/barcode.png';
 
 export const CardProcess = () => {
   const now = 80;
@@ -18,8 +18,16 @@ export const CardProcess = () => {
             <Table borderless size='sm'>
               <tbody>
                 <tr>
+                  <td><span>Txn id:</span></td>
+                  <td>123456789</td>
+                </tr>
+                <tr>
                   <td><span>Category:</span></td>
-                  <td>Top up card</td>
+                  <td>Top up</td>
+                </tr>
+                <tr>
+                  <td><span>Country:</span></td>
+                  <td>Nigeria</td>
                 </tr>
                 <tr>
                   <td><span>Number:</span></td>
@@ -32,6 +40,10 @@ export const CardProcess = () => {
                 <tr>
                   <td><span>Status:</span></td>
                   <td>Pending</td>
+                </tr>
+                <tr>
+                  <td><span>Txn hash:</span></td>
+                  <td><a href="/">0x6e16a2365324c97...ab93</a></td>
                 </tr>
               </tbody>
             </Table>
@@ -46,12 +58,12 @@ export const CardProcess = () => {
         <ProgressBar striped variant="success" animated now={now} label={`${now}%`} />
       </div>
 
-      <div className="txn-code-container">
+      {/* <div className="txn-code-container">
         <div className="barcode">
           <img src={barcode} alt="" />
         </div>
         <div className="txn-code">1234567890</div>
-      </div>
+      </div> */}
     </div>
   )
 }

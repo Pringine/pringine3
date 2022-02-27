@@ -9,7 +9,7 @@ export const ViewTxn = () => {
         <div className="qrcode">
             <img src={qrcode} alt="qrcode" />
         </div>
-        <BlockButton text='View transaction' />
+        <BlockButton text='Feedback' />
     </div>
   )
 }

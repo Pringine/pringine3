@@ -27,15 +27,20 @@
     font-weight: 500;
 }
 
-td{
+.timestamp td{
     font-size: 12px;
     padding: 0 !important;
     padding-left: 5px !important;
 }
 
+td a{
+    color: #000000;
+}
+
 .txn-progress, .progress{
-    height: 40px !important;
+    height: 30px !important;
     border-radius: 5px;
+    margin-bottom: 50px;
 }
 
 .txn-code-container{

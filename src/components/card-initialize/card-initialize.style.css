@@ -8,8 +8,8 @@
     height: 320px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-end;
+    /* justify-content: space-between;
+    align-items: flex-end; */
 }
 
 .card-category{
@@ -21,11 +21,19 @@
     margin: 20px;
 }
 
-.card-img{
-    /* width: 185.05px;
-    height: 254.02px; */
-    /* left: 309px;
-    top: 364.76px; */
+.card-image{
+    width: 200px;
+    height: 200px;
+    /* margin: auto; */
+    margin-left: 50px;
+    border: #ffffff 3px solid;
+}
+
+.card-image img{
+    width: 194px;
+    height: 194px;
+    object-fit: cover;
+    /* margin: auto; */
 }
 
 .card-amount{

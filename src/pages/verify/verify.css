@@ -1,0 +1,22 @@
+.txn-table{
+    /* max-width: 900px; */
+}
+
+/* .pagination li a{
+    color: #000000;
+} */
+
+.search{
+    width: 80%;
+    margin-left: auto;
+}
+
+.page-link {
+    color: #000000 !important;
+}
+
+.page-item.active .page-link {
+    background-color: #000000 !important;
+    color: #FFFFFF !important;
+    border-color: #000000 !important;
+}

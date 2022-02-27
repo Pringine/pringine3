@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import './home.css';
+import './txn-detail.css';
 import { NavigationBar } from '../../components/navbar/navbar.component';
 import { FooterBar } from '../../components/footer/footer.component';
 import { Card } from '../../components/card-initialize/card-initialize.component';
@@ -13,7 +13,7 @@ import { ViewTxn } from '../../components/view-txn/view-txn.component';
 
 
 
-export default class Home extends Component {
+export default class TxnDetail extends Component {
     constructor(props) {
         super(props)
       
@@ -38,12 +38,12 @@ export default class Home extends Component {
 
         <div className="create-card d-md-flex d-sm-block container">
           <div className="card-container mb-5">
-            <Card />
+            <CardProcess />
           </div>
 
           <div className="form-box">
             <div className="card-side">
-              <CardForm data={this.state} />
+              <ViewTxn />
             </div>
           </div>
         </div>

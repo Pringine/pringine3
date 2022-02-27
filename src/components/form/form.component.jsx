@@ -6,13 +6,22 @@ import { BlockButton } from '../block-button/block-button.component';
 import { InputField } from '../input/input.component';
 import { SelectInput } from '../select-input/select-input.component';
 
-export const CardForm = ({providers}) => {
+// import m
+
+export const CardForm = ({data}) => {
 
   return (
     <div className='card-form'>
 
       <SelectInput
-        data={providers}
+        data={data.countries}
+        default_name='Select Countries' 
+        uni_key='code'
+        value='code'
+        displayed_name='name' />
+
+      <SelectInput
+        data={data.providers}
         default_name='Select Providers' 
         uni_key='id'
         value='id'
