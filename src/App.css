@@ -4,7 +4,13 @@ App{
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #f7f7f7;
 }
+
 h1 {
   font-weight: 100;
+}
+
+.navigationbar, .footer{
+  height: 50px;
 }

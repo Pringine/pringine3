@@ -11,6 +11,10 @@
     margin-left: auto;
 }
 
+tr:hover{
+    font-weight: 700;
+}
+
 .page-link {
     color: #000000 !important;
 }

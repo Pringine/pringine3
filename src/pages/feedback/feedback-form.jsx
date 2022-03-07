@@ -10,9 +10,6 @@ export default class FeedbackForm extends Component {
   render() {
     return (
       <div className="feedback-container">
-        <div className="navigationbar">
-          <NavigationBar />
-        </div>
 
         <div className="feedback-form justify-content-md-center row">
         <Form className='col-md-6 col-sm-6'>
@@ -48,13 +45,10 @@ export default class FeedbackForm extends Component {
                     </Form.Group>
                 </div>
             </div>
-            <BlockButton text='Submit' />
+            <BlockButton url='transaction-detail' text='Submit' />
         </Form>
         </div>
 
-        <div className="footer">
-          <FooterBar />
-        </div>
       </div>
     )
   }

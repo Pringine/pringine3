@@ -32,9 +32,6 @@ export default class TxnDetail extends Component {
   render() {
     return (
       <div className="home ">
-        <div className="navigationbar">
-          <NavigationBar />
-        </div>
 
         <div className="create-card d-md-flex d-sm-block container">
           <div className="card-container mb-5">
@@ -48,9 +45,6 @@ export default class TxnDetail extends Component {
           </div>
         </div>
 
-        <div className="footer">
-          <FooterBar />
-        </div>
       </div>
     )
   }

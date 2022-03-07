@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
 
 import './verify.css';
-
 import { Form, Table, FormControl, Button, Pagination, InputGroup } from 'react-bootstrap';
-import { FooterBar } from '../../components/footer/footer.component';
-import { NavigationBar } from '../../components/navbar/navbar.component';
-import { BlockButton } from '../../components/block-button/block-button.component';
 
 export default class Verify extends Component {
   render() {
@@ -20,21 +16,9 @@ export default class Verify extends Component {
     }
     return (
       <div className="verify">
-        <div className="navigationbar">
-          <NavigationBar />
-        </div>
 
         <div className="container mx-auto">
           <div className="search my-5">
-          {/* <Form className="d-flex">
-            <FormControl
-              type="search"
-              placeholder="Search: transaction id, transaction hash, phone number, gift card number... etc"
-              className="me-2"
-              aria-label="Search"
-            />
-            <Button variant="dark">Search</Button>
-          </Form> */}
           <Form>
             <InputGroup className="mb-3">
               <FormControl
@@ -50,111 +34,145 @@ export default class Verify extends Component {
           </div>
 
           <div className="txn-table">
-            <Table striped borderedless hover>
+            <Table striped borderedless='false' hover>
               <thead>
                 <tr>
                   <th>Date</th>
+                  <th>Transaction id</th>
                   <th>Transaction hash</th>
                   <th>Amount (Ξ)</th>
                   <th>Status</th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td>18/02/22 10:23:46</td>
+                  <td>123456789</td>
                   <td>0x6e16a2365324c97...ab93</td>
                   <td>0.00013</td>
                   <td>Pending</td>
+                  <td><i class="fas fa-angle-right"></i></td>
                 </tr>
                 <tr>
                   <td>18/02/22 10:23:46</td>
+                  <td>123456789</td>
                   <td>0x6e16a2365324c97...ab93</td>
                   <td>0.00013</td>
                   <td>Pending</td>
+                  <td><i class="fas fa-angle-right"></i></td>
                 </tr>
                 <tr>
                   <td>18/02/22 10:23:46</td>
+                  <td>123456789</td>
                   <td>0x6e16a2365324c97...ab93</td>
                   <td>0.00013</td>
                   <td>Pending</td>
+                  <td><i class="fas fa-angle-right"></i></td>
                 </tr>
                 <tr>
                   <td>18/02/22 10:23:46</td>
+                  <td>123456789</td>
                   <td>0x6e16a2365324c97...ab93</td>
                   <td>0.00013</td>
                   <td>Pending</td>
+                  <td><i class="fas fa-angle-right"></i></td>
                 </tr>
                 <tr>
                   <td>18/02/22 10:23:46</td>
+                  <td>123456789</td>
                   <td>0x6e16a2365324c97...ab93</td>
                   <td>0.00013</td>
                   <td>Pending</td>
+                  <td><i class="fas fa-angle-right"></i></td>
                 </tr>
                 <tr>
                   <td>18/02/22 10:23:46</td>
+                  <td>123456789</td>
                   <td>0x6e16a2365324c97...ab93</td>
                   <td>0.00013</td>
                   <td>Pending</td>
+                  <td><i class="fas fa-angle-right"></i></td>
                 </tr>
                 <tr>
                   <td>18/02/22 10:23:46</td>
+                  <td>123456789</td>
                   <td>0x6e16a2365324c97...ab93</td>
                   <td>0.00013</td>
                   <td>Pending</td>
+                  <td><i class="fas fa-angle-right"></i></td>
                 </tr>
                 <tr>
                   <td>18/02/22 10:23:46</td>
+                  <td>123456789</td>
                   <td>0x6e16a2365324c97...ab93</td>
                   <td>0.00013</td>
                   <td>Pending</td>
+                  <td><i class="fas fa-angle-right"></i></td>
                 </tr>
                 <tr>
                   <td>18/02/22 10:23:46</td>
+                  <td>123456789</td>
                   <td>0x6e16a2365324c97...ab93</td>
                   <td>0.00013</td>
                   <td>Pending</td>
+                  <td><i class="fas fa-angle-right"></i></td>
                 </tr>
                 <tr>
                   <td>18/02/22 10:23:46</td>
+                  <td>123456789</td>
                   <td>0x6e16a2365324c97...ab93</td>
                   <td>0.00013</td>
                   <td>Pending</td>
+                  <td><i class="fas fa-angle-right"></i></td>
                 </tr>
                 <tr>
                   <td>18/02/22 10:23:46</td>
+                  <td>123456789</td>
                   <td>0x6e16a2365324c97...ab93</td>
                   <td>0.00013</td>
                   <td>Pending</td>
+                  <td><i class="fas fa-angle-right"></i></td>
                 </tr>
                 <tr>
                   <td>18/02/22 10:23:46</td>
+                  <td>123456789</td>
                   <td>0x6e16a2365324c97...ab93</td>
                   <td>0.00013</td>
                   <td>Pending</td>
+                  <td><i class="fas fa-angle-right"></i></td>
                 </tr>
                 <tr>
                   <td>18/02/22 10:23:46</td>
+                  <td>123456789</td>
                   <td>0x6e16a2365324c97...ab93</td>
                   <td>0.00013</td>
                   <td>Pending</td>
+                  <td><i class="fas fa-angle-right"></i></td>
                 </tr>
                 <tr>
                   <td>18/02/22 10:23:46</td>
+                  <td>123456789</td>
                   <td>0x6e16a2365324c97...ab93</td>
                   <td>0.00013</td>
                   <td>Pending</td>
+                  <td><i class="fas fa-angle-right"></i></td>
                 </tr>
                 <tr>
                   <td>18/02/22 10:23:46</td>
+                  <td>123456789</td>
                   <td>0x6e16a2365324c97...ab93</td>
                   <td>0.00013</td>
                   <td>Pending</td>
+                  <td><i class="fas fa-angle-right"></i></td>
                 </tr>
                 <tr>
                   <td>18/02/22 10:23:46</td>
+                  <td>123456789</td>
                   <td>0x6e16a2365324c97...ab93</td>
                   <td>0.00013</td>
                   <td>Pending</td>
+                  <td><i class="fas fa-angle-right"></i></td>
                 </tr>
               </tbody>
             </Table>
@@ -170,9 +188,6 @@ export default class Verify extends Component {
           </div>
         </div>
 
-        <div className="footer">
-          <FooterBar />
-        </div>
       </div>
     )
   }
