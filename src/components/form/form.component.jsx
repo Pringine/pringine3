@@ -5,12 +5,14 @@ import './form.style.css'
 import { BlockButton } from '../block-button/block-button.component';
 import { InputField, InputFieldGroup } from '../input/input.component';
 import { SelectInput } from '../select-input/select-input.component';
-import { FormControl, InputGroup } from 'react-bootstrap';
 
 // import m
 
-export const CardForm = ({data, getCardDetail, getCountry, getProvider, getAmount}) => {
+export const CardForm = ({data, getCountry, getProvider, getAmount}) => {
 
+  const {countryCallingCodes: dial_code, flag} = data.selectedCountry;
+
+  const prefix = dial_code ?`${flag} ${dial_code}`:'Country Code';
 
   return (
     <div className='card-form'>
@@ -33,11 +35,11 @@ export const CardForm = ({data, getCardDetail, getCountry, getProvider, getAmoun
 
       <div className="phone">
         <InputFieldGroup 
-          formType='text' 
+          formType='number' 
           placeholder='08xx xxx xxxx' 
-          prefix={data.selectedCountry.flag?`${data.selectedCountry.flag} ${data.selectedCountry.countryCallingCodes}`:'Country Code'} />
+          prefix={prefix} />
       </div>
-      <InputField formType='text' placeholder='Amount' getAmount={getAmount} />
+      <InputField formType='number' placeholder='Amount' getAmount={getAmount} />
 
       <BlockButton url='transaction-detail' text='Top up' />
     </div>

@@ -52,7 +52,7 @@ export default class Verify extends Component {
                   <td>0x6e16a2365324c97...ab93</td>
                   <td>0.00013</td>
                   <td>Pending</td>
-                  <td><i class="fas fa-angle-right"></i></td>
+                  <td><i className="fas fa-angle-right"></i></td>
                 </tr>
                 <tr>
                   <td>18/02/22 10:23:46</td>
@@ -60,7 +60,7 @@ export default class Verify extends Component {
                   <td>0x6e16a2365324c97...ab93</td>
                   <td>0.00013</td>
                   <td>Pending</td>
-                  <td><i class="fas fa-angle-right"></i></td>
+                  <td><i className="fas fa-angle-right"></i></td>
                 </tr>
                 <tr>
                   <td>18/02/22 10:23:46</td>
@@ -68,7 +68,7 @@ export default class Verify extends Component {
                   <td>0x6e16a2365324c97...ab93</td>
                   <td>0.00013</td>
                   <td>Pending</td>
-                  <td><i class="fas fa-angle-right"></i></td>
+                  <td><i className="fas fa-angle-right"></i></td>
                 </tr>
                 <tr>
                   <td>18/02/22 10:23:46</td>
@@ -76,7 +76,7 @@ export default class Verify extends Component {
                   <td>0x6e16a2365324c97...ab93</td>
                   <td>0.00013</td>
                   <td>Pending</td>
-                  <td><i class="fas fa-angle-right"></i></td>
+                  <td><i className="fas fa-angle-right"></i></td>
                 </tr>
                 <tr>
                   <td>18/02/22 10:23:46</td>
@@ -84,7 +84,7 @@ export default class Verify extends Component {
                   <td>0x6e16a2365324c97...ab93</td>
                   <td>0.00013</td>
                   <td>Pending</td>
-                  <td><i class="fas fa-angle-right"></i></td>
+                  <td><i className="fas fa-angle-right"></i></td>
                 </tr>
                 <tr>
                   <td>18/02/22 10:23:46</td>
@@ -92,7 +92,7 @@ export default class Verify extends Component {
                   <td>0x6e16a2365324c97...ab93</td>
                   <td>0.00013</td>
                   <td>Pending</td>
-                  <td><i class="fas fa-angle-right"></i></td>
+                  <td><i className="fas fa-angle-right"></i></td>
                 </tr>
                 <tr>
                   <td>18/02/22 10:23:46</td>
@@ -100,7 +100,7 @@ export default class Verify extends Component {
                   <td>0x6e16a2365324c97...ab93</td>
                   <td>0.00013</td>
                   <td>Pending</td>
-                  <td><i class="fas fa-angle-right"></i></td>
+                  <td><i className="fas fa-angle-right"></i></td>
                 </tr>
                 <tr>
                   <td>18/02/22 10:23:46</td>
@@ -108,7 +108,7 @@ export default class Verify extends Component {
                   <td>0x6e16a2365324c97...ab93</td>
                   <td>0.00013</td>
                   <td>Pending</td>
-                  <td><i class="fas fa-angle-right"></i></td>
+                  <td><i className="fas fa-angle-right"></i></td>
                 </tr>
                 <tr>
                   <td>18/02/22 10:23:46</td>
@@ -116,7 +116,7 @@ export default class Verify extends Component {
                   <td>0x6e16a2365324c97...ab93</td>
                   <td>0.00013</td>
                   <td>Pending</td>
-                  <td><i class="fas fa-angle-right"></i></td>
+                  <td><i className="fas fa-angle-right"></i></td>
                 </tr>
                 <tr>
                   <td>18/02/22 10:23:46</td>
@@ -124,7 +124,7 @@ export default class Verify extends Component {
                   <td>0x6e16a2365324c97...ab93</td>
                   <td>0.00013</td>
                   <td>Pending</td>
-                  <td><i class="fas fa-angle-right"></i></td>
+                  <td><i className="fas fa-angle-right"></i></td>
                 </tr>
                 <tr>
                   <td>18/02/22 10:23:46</td>
@@ -132,7 +132,7 @@ export default class Verify extends Component {
                   <td>0x6e16a2365324c97...ab93</td>
                   <td>0.00013</td>
                   <td>Pending</td>
-                  <td><i class="fas fa-angle-right"></i></td>
+                  <td><i className="fas fa-angle-right"></i></td>
                 </tr>
                 <tr>
                   <td>18/02/22 10:23:46</td>
@@ -140,7 +140,7 @@ export default class Verify extends Component {
                   <td>0x6e16a2365324c97...ab93</td>
                   <td>0.00013</td>
                   <td>Pending</td>
-                  <td><i class="fas fa-angle-right"></i></td>
+                  <td><i className="fas fa-angle-right"></i></td>
                 </tr>
                 <tr>
                   <td>18/02/22 10:23:46</td>
@@ -148,7 +148,7 @@ export default class Verify extends Component {
                   <td>0x6e16a2365324c97...ab93</td>
                   <td>0.00013</td>
                   <td>Pending</td>
-                  <td><i class="fas fa-angle-right"></i></td>
+                  <td><i className="fas fa-angle-right"></i></td>
                 </tr>
                 <tr>
                   <td>18/02/22 10:23:46</td>
@@ -156,7 +156,7 @@ export default class Verify extends Component {
                   <td>0x6e16a2365324c97...ab93</td>
                   <td>0.00013</td>
                   <td>Pending</td>
-                  <td><i class="fas fa-angle-right"></i></td>
+                  <td><i className="fas fa-angle-right"></i></td>
                 </tr>
                 <tr>
                   <td>18/02/22 10:23:46</td>
@@ -164,7 +164,7 @@ export default class Verify extends Component {
                   <td>0x6e16a2365324c97...ab93</td>
                   <td>0.00013</td>
                   <td>Pending</td>
-                  <td><i class="fas fa-angle-right"></i></td>
+                  <td><i className="fas fa-angle-right"></i></td>
                 </tr>
                 <tr>
                   <td>18/02/22 10:23:46</td>
@@ -172,7 +172,7 @@ export default class Verify extends Component {
                   <td>0x6e16a2365324c97...ab93</td>
                   <td>0.00013</td>
                   <td>Pending</td>
-                  <td><i class="fas fa-angle-right"></i></td>
+                  <td><i className="fas fa-angle-right"></i></td>
                 </tr>
               </tbody>
             </Table>

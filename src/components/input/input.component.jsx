@@ -1,5 +1,6 @@
-import React from 'react'
-import {Form, InputGroup} from 'react-bootstrap'
+import React from 'react';
+import './input.style.css'
+import {Form, InputGroup} from 'react-bootstrap';
 
 export const InputField = ({formType, placeholder, getAmount}) => {
   return (

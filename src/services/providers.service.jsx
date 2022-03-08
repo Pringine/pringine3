@@ -1,5 +1,5 @@
 import mtnLogo from "../assets/img/mtn.png";
-import gloLogo from "../assets/img/glo2.png";
+import gloLogo from "../assets/img/glo.png";
 import nineMobileLogo from "../assets/img/9mobile.jpeg";
 import airtelLogo from "../assets/img/airtel.png";
 

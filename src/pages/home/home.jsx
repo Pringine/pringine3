@@ -6,9 +6,8 @@ import { CardForm } from '../../components/form/form.component';
 import { Providers } from '../../services/providers.service';
 // import { Countries } from '../../services/countries.service';
 import { Countries } from '../../services/countryData.service';
-import { SelectInput } from '../../components/select-input/select-input.component';
-import { CardProcess } from '../../components/card-process/card-process.component';
-import { ViewTxn } from '../../components/view-txn/view-txn.component';
+// import { CardProcess } from '../../components/card-process/card-process.component';
+// import { ViewTxn } from '../../components/view-txn/view-txn.component';
 
 
 
@@ -57,10 +56,15 @@ export default class Home extends Component {
   }
 
   render() {
+
+    const {bgColor} = this.state.selectedProvider
+
+    let backgroundColor = {background: bgColor}
+
     return (
       <div className="home ">
         <div className="create-card d-md-flex d-sm-block container">
-          <div className="card-container mb-5" style={{background: this.state.selectedProvider.bgColor}}>
+          <div className="card-container mb-5" style={backgroundColor}>
             <Card cardData={this.state} />
           </div>
 
@@ -70,8 +74,7 @@ export default class Home extends Component {
                 data={this.state} 
                 getCountry={this.getSelectedCountry}
                 getProvider={this.getSelectedProvider}
-                getAmount={this.getAmount}
-                getCard={this.getCardDetail} />
+                getAmount={this.getAmount} />
             </div>
           </div>
         </div>
