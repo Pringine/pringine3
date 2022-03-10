@@ -69,8 +69,10 @@ td a{
 }
 
 .provider-img-process{
-    /* width: 61px; */
+    background-color: none;
+}
+
+.provider-img-process img{
+    width: 61px;
     height: 61px;
-    background-color: grey;
-    /* margin: 20px 20px auto auto; */
 }

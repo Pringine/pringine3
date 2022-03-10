@@ -1,34 +1,34 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './txn-detail.css';
 import { CardProcess } from '../../components/card-process/card-process.component';
 import { ViewTxn } from '../../components/view-txn/view-txn.component';
-import { useLocation, useParams, useSearchParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
-
-function useQuery() {
-  const { search } = useLocation();
-
-  return React.useMemo(() => new URLSearchParams(search), [search]);
-}
+import {Txns} from '../../services/transactions.service'
 
 
 const TxnDetail = () => {
-  const {id} = useParams()
-  console.log(id);
 
-  const [searchParams] = useSearchParams();
-  console.log(searchParams.get('sort')); 
+  const [data, setData] = useState({ txn: {} });
+
+  const id = parseInt(useParams().id);
+
+  useEffect(()=>{
+    // filter transaction
+    const txn = Txns.filter(tx=>tx.id===id)[0];
+    setData({txn})
+  },[id])
 
   return (
     <div className="home ">
       <div className="create-card d-md-flex d-sm-block container">
-        <div className="card-container mb-5">
-          <CardProcess />
+        <div className="card-container mb-5" style={{backgroundColor:'#ffffff'}}>
+          <CardProcess txn={data.txn} id={id} />
         </div>
 
         <div className="form-box">
           <div className="card-side">
-            <ViewTxn />
+            <ViewTxn id={id} />
           </div>
         </div>
       </div>

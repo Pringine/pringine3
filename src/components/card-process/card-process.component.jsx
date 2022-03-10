@@ -1,69 +1,104 @@
-import React from 'react';
-import { Table } from 'react-bootstrap';
-import ProgressBar from 'react-bootstrap/ProgressBar';
-import './card-process.style.css';
+import React, { useEffect, useState } from "react";
+import { Table } from "react-bootstrap";
+import ProgressBar from "react-bootstrap/ProgressBar";
+import "./card-process.style.css";
 
-import mtn from '../../assets/img/mtn.png';
-import barcode from '../../assets/img/barcode.png';
+import { Providers } from "../../services/providers.service";
 
-export const CardProcess = () => {
+export const CardProcess = ({ txn }) => {
+  const [data, setData] = useState({ providers: [] });
+
+  const provider = data.providers.length
+    ? data.providers.filter((prov) => prov.id === txn.provider)[0]
+    : [];
+
+  useEffect(() => {
+    // set provider
+    setData({ providers: Providers });
+  }, []);
+
+  // Completion rate
   const now = 80;
+
   return (
     <div className="process-card">
       <div className="process-stat">
         <div className="process-card-amount">
-           <div className="card-fiat">₦ 1,500</div>
-           <div className="card-crypto">Ξ 0.0013</div>
-           <div className="timestamp mt-2">
-            <Table borderless size='sm'>
+          <div className="card-fiat">
+            {txn.amount ? parseFloat(txn.amount).toLocaleString() : ""}
+          </div>
+          <div className="card-crypto">Ξ {txn.eth}</div>
+          <div className="timestamp mt-2">
+            <Table borderless size="sm">
               <tbody>
                 <tr>
-                  <td><span>Txn id:</span></td>
-                  <td>123456789</td>
+                  <td>
+                    <span>Txn id:</span>
+                  </td>
+                  <td>{txn.id}</td>
                 </tr>
                 <tr>
-                  <td><span>Category:</span></td>
-                  <td>Top up</td>
+                  <td>
+                    <span>Category:</span>
+                  </td>
+                  <td>{txn.category}</td>
                 </tr>
                 <tr>
-                  <td><span>Country:</span></td>
-                  <td>Nigeria</td>
+                  <td>
+                    <span>Country:</span>
+                  </td>
+                  <td>{txn.country}</td>
                 </tr>
                 <tr>
-                  <td><span>Number:</span></td>
-                  <td>+234 810 XXX XX02</td>
+                  <td>
+                    <span>Number:</span>
+                  </td>
+                  <td>{txn.utilNumber}</td>
                 </tr>
                 <tr>
-                  <td><span>Timestamp:</span></td>
-                  <td>Feb-18-2022 10:23:46</td>
+                  <td>
+                    <span>Timestamp:</span>
+                  </td>
+                  <td>{txn.date}</td>
                 </tr>
                 <tr>
-                  <td><span>Status:</span></td>
-                  <td>Pending</td>
+                  <td>
+                    <span>Status:</span>
+                  </td>
+                  <td>{txn.status}</td>
                 </tr>
                 <tr>
-                  <td><span>Txn hash:</span></td>
-                  <td><a href="/">0x6e16a2365324c97...ab93</a></td>
+                  <td>
+                    <span>Txn hash:</span>
+                  </td>
+                  <td>
+                    <a
+                      href={`https://etherscan.io/address/${txn.hash}`}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {txn.hash}
+                    </a>
+                  </td>
                 </tr>
               </tbody>
             </Table>
-           </div>
-         </div>
+          </div>
+        </div>
         <div className="provider-img-process">
-          <img src={mtn} alt="" />
+          <img src={data.providers.length ? provider.logo : ""} alt="" />
         </div>
       </div>
 
       <div className="mx-4 txn-process">
-        <ProgressBar striped variant="success" animated now={now} label={`${now}%`} />
+        <ProgressBar
+          striped
+          variant="success"
+          animated
+          now={now}
+          label={`${now}%`}
+        />
       </div>
-
-      {/* <div className="txn-code-container">
-        <div className="barcode">
-          <img src={barcode} alt="" />
-        </div>
-        <div className="txn-code">1234567890</div>
-      </div> */}
     </div>
-  )
-}
+  );
+};

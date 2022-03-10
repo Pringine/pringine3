@@ -8,7 +8,7 @@ import { SelectInput } from '../select-input/select-input.component';
 
 // import m
 
-export const CardForm = ({data, getCountry, getProvider, getAmount}) => {
+export const CardForm = ({data, getCountry, getProvider, getAmount, getPhone, submitForm, getText}) => {
 
   const {countryCallingCodes: dial_code, flag} = data.selectedCountry;
 
@@ -35,13 +35,15 @@ export const CardForm = ({data, getCountry, getProvider, getAmount}) => {
 
       <div className="phone">
         <InputFieldGroup 
+          name='phone'
           formType='number' 
           placeholder='08xx xxx xxxx' 
+          getText={getText}
           prefix={prefix} />
       </div>
-      <InputField formType='number' placeholder='Amount' getAmount={getAmount} />
+      <InputField name='amount' formType='number' placeholder='Amount' getText={getText} />
 
-      <BlockButton url='transaction-detail' text='Top up' />
+      <BlockButton url='transaction-detail' text='Top up' onClick={submitForm} />
     </div>
   )
 }

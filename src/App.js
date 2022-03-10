@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import "./App.css";
 import { FooterBar } from "./components/footer/footer.component";
 import { NavigationBar } from "./components/navbar/navbar.component";
@@ -19,10 +19,11 @@ function App() {
         {/* <Route path="/transaction-detail" element={<TxnDetail />} /> */}
         <Route path="/verify/:id" element={<TxnDetail />} />
         <Route path="/verify" element={<Verify />} />
+        <Route path="/feedback/:id" element={<FeedbackForm />} />
         <Route path="/feedback" element={<FeedbackForm />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/" element={<Home />} />
-        <Route path="*" element={<Home />} />
+        <Route path="*" element={<Navigate replace to="/" />} />
       </Routes>
 
       <div className="footer">
