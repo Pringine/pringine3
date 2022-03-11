@@ -58,34 +58,20 @@ export default class Home extends Component {
   };
 
   getText = (e, name) => {
-    const item = e.target.value;
-
     const { card } = this.state;
-    card[name] = item;
+    card[name] = e.target.value;;
 
     this.setState({ card });
   };
 
-  getAmount = (e) => {
-    const amount = e.target.value;
-
-    const { card } = this.state;
-    card.amount = amount;
-
-    this.setState({ card });
+  onSubmit = (e) => {
+    // e.preventDefault()
+    // console.log(this.state);
   };
 
-  getPhone = (e) => {
-    const phone = e.target.value;
-
-    const { card } = this.state;
-    card.phone = phone;
-
-    this.setState({ card });
-  };
-
-  submitForm = () => {
+  submitForm = (e) => {
     console.log(this.state);
+    e.preventDefault();
   };
 
   render() {
