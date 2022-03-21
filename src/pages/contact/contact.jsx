@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { Form } from 'react-bootstrap';
 import { BlockButton } from '../../components/block-button/block-button.component';
-import { FooterBar } from '../../components/footer/footer.component';
-import { NavigationBar } from '../../components/navbar/navbar.component';
 
 import './contact.css';
 

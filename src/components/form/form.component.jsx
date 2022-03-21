@@ -43,7 +43,7 @@ export const CardForm = ({data, getCountry, getProvider, getText, submitForm}) =
       </div>
       <InputField name='amount' formType='number' placeholder='Amount' getText={getText} />
 
-      <BlockButton url='transaction-detail' text='Top up' type='submit' />
+      <BlockButton url='transaction-detail' text='Top up' data={data} type='submit' />
     </form>
   )
 }

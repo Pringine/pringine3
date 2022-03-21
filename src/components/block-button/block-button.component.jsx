@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-export const BlockButton = ({ text, url, onClick, id, type }) => {
+export const BlockButton = ({ text, url, id, type, data }) => {
   let renderBotton = (
     <Button
       as={Link}
@@ -15,7 +15,7 @@ export const BlockButton = ({ text, url, onClick, id, type }) => {
   );
   if (type) {
     renderBotton = (
-      <Button variant="dark" size="md" type={type}>
+      <Button variant="dark" size="md" type={type} disabled={data.errors}>
         {text}
       </Button>
     );

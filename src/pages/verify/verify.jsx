@@ -1,14 +1,9 @@
 import React from 'react';
-
-import './verify.css';
 import { Form, Table, FormControl, Button, InputGroup } from 'react-bootstrap';
 import {Txns} from '../../services/transactions.service';
 import { useNavigate } from 'react-router-dom';
 
-
-// const handleClick=(tx)=>{
-//   console.log(tx);
-// }
+import './verify.css';
 
 
 const Verify = () => {

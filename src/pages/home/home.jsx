@@ -1,13 +1,12 @@
 import React, { Component } from "react";
-
-import "./home.css";
+import Joi from "joi";
 import { Card } from "../../components/card-initialize/card-initialize.component";
 import { CardForm } from "../../components/form/form.component";
 import { Providers } from "../../services/providers.service";
-// import { Countries } from '../../services/countries.service';
 import { Countries } from "../../services/countryData.service";
-// import { CardProcess } from '../../components/card-process/card-process.component';
-// import { ViewTxn } from '../../components/view-txn/view-txn.component';
+
+import "./home.css";
+
 
 export default class Home extends Component {
   constructor(props) {
@@ -18,9 +17,9 @@ export default class Home extends Component {
       countries: [],
       availableCountries: ["Nigeria", "Ghana", "Uganda"],
       selectedCountry: {},
-      selectedProvider: "",
-      amount: "",
-      card: { country: {}, provider: {}, phone: "", amount: "" },
+      selectedProvider: {},
+      card: { country: "", provider: "", phone: "", amount: "" },
+      errors: {},
     };
   }
 
@@ -29,61 +28,88 @@ export default class Home extends Component {
       this.state.availableCountries.includes(country.name)
     );
     this.setState({ providers: Providers, countries: countries });
+
+    this.validate();
   }
+
+  schema = Joi.object({
+    phone: Joi.string().required(),
+    amount: Joi.string().required(),
+    country: Joi.string().required(),
+    provider: Joi.string().required(),
+  });
+
+  validate = () => {
+    const result = this.schema.validate(this.state.card, { abortEarly: false });
+
+    if (!result.error) return null;
+
+    const errors = {};
+
+    result.error.details.map((err) => (errors[err.path[0]] = err.message));
+
+    return errors;
+  };
 
   getSelectedCountry = (e) => {
     const countryValue = e.target.value;
 
     const { card } = this.state;
-    card.country = this.state.countries.filter((country) =>
-      countryValue.includes(country.alpha2)
-    )[0];
+    card.country = countryValue;
     this.setState({ card });
 
-    // const selectedCountry = this.state.countries.filter(country=>countryValue.includes(country.alpha2))[0];
-    // this.setState({selectedCountry});
+    const selectedCountry = this.state.countries.filter((country) =>
+      countryValue.includes(country.alpha2)
+    )[0];
+    this.setState({ selectedCountry });
+
+    const errors = this.validate()
+    this.setState({errors})
   };
 
   getSelectedProvider = (e) => {
     const providerValue = e.target.value;
 
     const { card } = this.state;
-    card.provider = this.state.providers.filter((provider) =>
+    card.provider = providerValue;
+    this.setState({ card });
+
+    const selectedProvider = this.state.providers.filter((provider) =>
       providerValue.includes(provider.id)
     )[0];
-    this.setState({ card });
+    this.setState({ selectedProvider });
 
-    // const selectedProvider = this.state.providers.filter(provider=>providerValue.includes(provider.id))[0]
-    // this.setState({selectedProvider});
+    const errors = this.validate()
+    this.setState({errors})
   };
 
-  getText = (e, name) => {
+  getText = ({ currentTarget: input }, name) => {
     const { card } = this.state;
-    card[name] = e.target.value;;
+    card[name] = input.value;
 
     this.setState({ card });
-  };
 
-  onSubmit = (e) => {
-    // e.preventDefault()
-    // console.log(this.state);
+    const errors = this.validate()
+    this.setState({errors})
   };
 
   submitForm = (e) => {
-    console.log(this.state);
     e.preventDefault();
+    const errors = this.validate()
+    this.setState({errors})
+    // console.log(this.state);
   };
 
   render() {
-    const { bgColor } = this.state.card.provider;
+    const { bgColor } = this.state.selectedProvider;
 
-    let backgroundColor = { background: bgColor ? bgColor : "#ffffff" };
+    let backgroundColor = { background: bgColor ? bgColor : "" };
 
     return (
       <div className="home ">
         <div className="create-card d-md-flex d-sm-block container">
-          <div className="card-container mb-5" style={backgroundColor}>
-            <Card cardData={this.state.card} />
+          <div className="card-container init-card mb-5" style={backgroundColor}>
+            <Card cardData={this.state} />
           </div>
 
           <div className="form-box">

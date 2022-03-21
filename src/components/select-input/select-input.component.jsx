@@ -1,10 +1,6 @@
 import React from "react";
 import { Form } from "react-bootstrap";
 
-const getState = (name, e) =>{
-  console.log(name=='Select Countries'? 'Country' : 'Provider' );
-}
-
 export const SelectInput = ({data, default_name, uni_key, value, displayed_name, flag, getData}) => {
 
   return (

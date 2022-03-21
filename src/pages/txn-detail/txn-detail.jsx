@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import './txn-detail.css';
 import { CardProcess } from '../../components/card-process/card-process.component';
 import { ViewTxn } from '../../components/view-txn/view-txn.component';
 import { useParams } from 'react-router-dom';
-
 import {Txns} from '../../services/transactions.service'
+
+import './txn-detail.css';
 
 
 const TxnDetail = () => {

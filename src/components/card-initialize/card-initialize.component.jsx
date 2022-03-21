@@ -5,7 +5,7 @@ import cardImg from '../../assets/img/card-img.png';
 
 export const Card = ({cardData}) => {
 
-  let {amount, provider, country} = cardData
+  let {card, selectedProvider: provider, selectedCountry: country} = cardData
 
   let styles = {
     color:provider.color ? provider.color : '#000000'
@@ -21,7 +21,7 @@ export const Card = ({cardData}) => {
       </div>
       <div className="section2">
         <div className="card-amount">
-          <div className="card-fiat">{country.currencies} {parseInt(amount)?parseInt(amount).toLocaleString():''}</div>
+          <div className="card-fiat">{country.currencies} {parseInt(card.amount)?parseInt(card.amount).toLocaleString():''}</div>
           <div className="card-crypto">Ξ 0.0013</div>
         </div>
         <div className="provider-img">
