@@ -1,21 +1,28 @@
 import React, { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
-import ProgressBar from "react-bootstrap/ProgressBar";
-import "./card-process.style.css";
+import axios from "axios";
+import config from "../../../config.json";
 
-import { Providers } from "../../../services/providers.service";
+import "./card-process.style.css";
+import ProgressBar from "react-bootstrap/ProgressBar";
 
 export const CardProcess = ({ txn }) => {
-  const [data, setData] = useState({ providers: [] });
+  const [data, setData] = useState({ provider: {} });
 
-  const provider = data.providers.length
-    ? data.providers.filter((prov) => prov.id === txn.provider)[0]
-    : [];
+  // const provider = data.providers.length
+  //   ? data.providers.filter((prov) => prov.id === txn.provider)[0]
+  //   : [];
 
-  useEffect(() => {
-    // set provider
-    setData({ providers: Providers });
-  }, []);
+  useEffect(async () => {
+    if (txn.provider) {
+      const { data: provider } = await axios.get(
+        `${config.localUrl}/provider/${txn.provider}/`
+      );
+
+      // set provider
+      setData({ provider });
+    }
+  }, [txn]);
 
   // Completion rate
   const now = 80;
@@ -86,7 +93,7 @@ export const CardProcess = ({ txn }) => {
           </div>
         </div>
         <div className="provider-img-process">
-          <img src={data.providers.length ? provider.logo : ""} alt="" />
+          <img src={data.provider ? data.provider.logo : ""} alt="" />
         </div>
       </div>
 

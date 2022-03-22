@@ -3,8 +3,7 @@ import axios from "axios";
 import Joi from "joi";
 import { Card } from "../common/card-initialize/card-initialize.component";
 import { CardForm } from "../common/form/form.component";
-import { Providers } from "../../services/providers.service";
-import { Countries } from "../../services/countryData.service";
+import config from '../../config.json'
 
 import "./home.css";
 
@@ -25,11 +24,11 @@ export default class Home extends Component {
 
   async componentDidMount() {
     // // Get available countries
-    const {data: availableCountries} = await axios.get("http://localhost:8000/country/available");
+    const {data: availableCountries} = await axios.get(`${config.localUrl}/country/available/`);
     this.setState({availableCountries})
 
     // Get Providers
-    const {data: providers} = await axios.get("http://localhost:8000/provider/");
+    const {data: providers} = await axios.get(`${config.localUrl}/provider/`);
     this.setState({providers})
 
     this.validate();
