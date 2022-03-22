@@ -1,7 +1,7 @@
 import React from "react";
 import { Form } from "react-bootstrap";
 import { useParams } from "react-router-dom";
-import { BlockButton } from "../../components/block-button/block-button.component";
+import { BlockButton } from "../common/block-button/block-button.component";
 
 import "./feedback-form.css";
 

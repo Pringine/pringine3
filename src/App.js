@@ -1,12 +1,12 @@
 import { Route, Routes, Navigate } from "react-router-dom";
 import "./App.css";
-import { FooterBar } from "./components/footer/footer.component";
-import { NavigationBar } from "./components/navbar/navbar.component";
-import Contact from "./pages/contact/contact";
-import FeedbackForm from "./pages/feedback/feedback-form";
-import Home from "./pages/home/home";
-import TxnDetail from "./pages/txn-detail/txn-detail";
-import Verify from "./pages/verify/verify";
+import { FooterBar } from "./components/common/footer/footer.component";
+import { NavigationBar } from "./components/common/navbar/navbar.component";
+import Contact from "./components/contact/contact";
+import FeedbackForm from "./components/feedback/feedback-form";
+import Home from "./components/home/home";
+import TxnDetail from "./components/txn-detail/txn-detail";
+import Verify from "./components/verify/verify";
 
 function App() {
   return (

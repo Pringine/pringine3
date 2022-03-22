@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Form } from 'react-bootstrap';
-import { BlockButton } from '../../components/block-button/block-button.component';
+import { BlockButton } from '../common/block-button/block-button.component';
 
 import './contact.css';
 

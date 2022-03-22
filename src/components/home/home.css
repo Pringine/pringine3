@@ -11,7 +11,8 @@
 }
 
 .init-card{
-    background-image:#000000;background-image:  
+    background-image:#000;
+    background-image:  
     radial-gradient(at 69% 30%, hsla(316,100%,74%,1) 0, transparent 50%),  
     radial-gradient(at 99% 0%, hsla(117,100%,56%,1) 0, transparent 50%),  
     radial-gradient(at 0% 50%, hsla(283,85%,93%,1) 0, transparent 50%),  

@@ -3,7 +3,7 @@ import { Table } from "react-bootstrap";
 import ProgressBar from "react-bootstrap/ProgressBar";
 import "./card-process.style.css";
 
-import { Providers } from "../../services/providers.service";
+import { Providers } from "../../../services/providers.service";
 
 export const CardProcess = ({ txn }) => {
   const [data, setData] = useState({ providers: [] });

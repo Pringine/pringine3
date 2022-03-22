@@ -10,7 +10,7 @@ import { SelectInput } from '../select-input/select-input.component';
 
 export const CardForm = ({data, getCountry, getProvider, getText, submitForm}) => {
 
-  const {countryCallingCodes: dial_code, flag} = data.selectedCountry;
+  const {dial_code, flag} = data.selectedCountry;
 
   const prefix = dial_code ?`${flag} ${dial_code}`:'Country Code';
 
@@ -18,10 +18,10 @@ export const CardForm = ({data, getCountry, getProvider, getText, submitForm}) =
     <form className='card-form' onSubmit={submitForm}>
 
       <SelectInput
-        data={data.countries}
+        data={data.availableCountries}
         default_name='Select Countries' 
-        uni_key='alpha2'
-        value='alpha2'
+        uni_key='id'
+        value='id'
         displayed_name='name'
         getData={getCountry} />
 

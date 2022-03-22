@@ -1,7 +1,7 @@
 import React from 'react';
 import './view-txn.style.css';
 import { BlockButton } from '../block-button/block-button.component';
-import qrcode from '../../assets/img/qrcode.png'
+import qrcode from '../../../assets/img/qrcode.png'
 
 export const ViewTxn = ({id}) => {
   return (
