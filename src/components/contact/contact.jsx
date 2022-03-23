@@ -1,37 +1,78 @@
-import React, { Component } from 'react';
-import { Form } from 'react-bootstrap';
-import { BlockButton } from '../common/block-button/block-button.component';
+import axios from "axios";
+import React, { useState } from "react";
+import { Form } from "react-bootstrap";
+import { toast, ToastContainer } from "react-toastify";
+import { BlockButton } from "../common/block-button/block-button.component";
+import config from '../../config.json'
 
-import './contact.css';
+import "./contact.css";
 
-export default class Contact extends Component {
-  render() {
-    return (
-      <div className="feedback-container">
+const Contact = () => {
+  const [data, setData] = useState({ email: "", message: "" });
 
-        <div className="feedback-form justify-content-md-center row">
-        <Form className='col-md-6 col-sm-6'>
-            <div className="row">
-                <div className="col-12">
-                <Form.Group className="mb-4" controlId="formBasicEmail">
-                    {/* <Form.Label>Email address</Form.Label> */}
-                    <Form.Control type="email" placeholder="Email" />
-                    <Form.Text className="text-muted">
-                    </Form.Text>
-                </Form.Group>
-                </div>
-                <div className="col-12">
-                    <Form.Group className="mb-4" controlId="ControlTextarea1">
-                        {/* <Form.Label>Example textarea</Form.Label> */}
-                        <Form.Control as="textarea" placeholder="Message" rows={7} />
-                    </Form.Group>
-                </div>
+  const handleChange = (e, state) => {
+    const value = e.target.value;
+
+    const fb = { ...data };
+    fb[state] = value;
+
+    setData({ ...fb });
+  };
+
+  const handleSubmit = async(e) => {
+    e.preventDefault();
+    axios.post(`${config.baseUrl}/contact/`, data).then(
+      // Toast for success
+      toast("Message sent", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      })
+    );
+    // Reset form
+    setData({ email: "", message: "" });
+
+    // Toast for success
+  };
+  return (
+    <div className="feedback-container">
+      <div className="feedback-form justify-content-md-center row">
+        <Form className="col-md-6 col-sm-6"  onSubmit={(e) => handleSubmit(e)} >
+          <div className="row">
+            <div className="col-12">
+              <Form.Group className="mb-4" controlId="formBasicEmail">
+                {/* <Form.Label>Email address</Form.Label> */}
+                <Form.Control
+                  type="email"
+                  placeholder="Email"
+                  onChange={(e) => handleChange(e, "email")}
+                  value={data.email}
+                />
+                <Form.Text className="text-muted"></Form.Text>
+              </Form.Group>
             </div>
-            <BlockButton text='Submit' />
+            <div className="col-12">
+              <Form.Group className="mb-4" controlId="ControlTextarea1">
+                {/* <Form.Label>Example textarea</Form.Label> */}
+                <Form.Control
+                  as="textarea"
+                  placeholder="Message"
+                  rows={7}
+                  onChange={(e) => handleChange(e, "message")}
+                  value={data.message}
+                />
+              </Form.Group>
+            </div>
+          </div>
+          <BlockButton text="Submit" type="Submit"/>
+          <ToastContainer />
         </Form>
-        </div>
-
       </div>
-    )
-  }
-}
+    </div>
+  );
+};
+
+export default Contact;

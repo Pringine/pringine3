@@ -2,35 +2,48 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 import { useParams } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { BlockButton } from "../common/block-button/block-button.component";
+
+import config from '../../config.json'
 
 import "./feedback-form.css";
 
 const FeedbackForm = () => {
   const { id } = useParams();
-  const [data, setData] = useState({
-    feedback: { email: "", txn_id: id, message: "" },
-  });
+  const [data, setData] = useState({ email: "", txn_id: id, message: "" });
 
   const handleChange = (e, state) => {
     const value = e.target.value;
 
-    const fb = { ...data.feedback };
-    fb[state] = value;
+    const feedback = { ...data };
+    feedback[state] = value;
 
-    setData({ feedback: fb });
+    setData({ ...feedback });
   };
 
-  const handleSubmit = () =>{
-    axios.post('http://localhost:8000/txn/feedback/', data.feedback)
-
-    // Toast for success
-  }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    axios.post(`${config.baseUrl}/txn/feedback/`, data).then(
+      // Toast for success
+      toast("Feedback sent", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      })
+    );
+    // Reset form
+    setData({ email: "", txn_id: id, message: "" });
+  };
 
   return (
     <div className="feedback-container">
       <div className="feedback-form justify-content-md-center row">
-        <Form className="col-md-6 col-sm-6">
+        <Form className="col-md-6 col-sm-6" onSubmit={(e) => handleSubmit(e)}>
           <div className="row">
             <div className="col-12">
               <Form.Group className="mb-4" controlId="formBasicEmail">
@@ -39,6 +52,7 @@ const FeedbackForm = () => {
                   type="email"
                   placeholder="Email"
                   onChange={(e) => handleChange(e, "email")}
+                  value={data.email}
                 />
                 <Form.Text className="text-muted"></Form.Text>
               </Form.Group>
@@ -63,11 +77,13 @@ const FeedbackForm = () => {
                   placeholder="Message"
                   rows={7}
                   onChange={(e) => handleChange(e, "message")}
+                  value={data.message}
                 />
               </Form.Group>
             </div>
           </div>
-          <BlockButton url="transaction-detail" text="Submit" onClick={(e) => handleSubmit(e, "email")} />
+          <BlockButton url="transaction-detail" text="Submit" type="Submit" />
+          <ToastContainer />
         </Form>
       </div>
     </div>

@@ -5,25 +5,28 @@ import { Link } from "react-router-dom";
 export const BlockButton = ({ text, url, id, type, data, onClick }) => {
   let renderBotton = (
     // For navigation buttons
-    <Button
-      as={Link}
-      to={id ? `/${url}/${id}` : `/${url}`}
-      variant="light"
-      size="md"
-      onClick={onClick}
-    >
+    <Button variant="light" size="md" onClick={onClick} type={type}>
       {text}
     </Button>
   );
 
   // For submit buttons
-  if (type) {
+  if (data) {
+    renderBotton = (
+      <Button variant="light" size="md" type={type} disabled={data.errors}>
+        {text}
+      </Button>
+    );
+  }
+
+  // For submit buttons
+  else if (id) {
     renderBotton = (
       <Button
+        as={Link}
+        to={id ? `/${url}/${id}` : `/${url}`}
         variant="light"
         size="md"
-        type={type}
-        disabled={data.errors}
       >
         {text}
       </Button>

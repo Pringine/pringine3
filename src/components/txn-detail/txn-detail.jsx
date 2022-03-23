@@ -31,7 +31,7 @@ const TxnDetail = () => {
     <div className="home ">
       <div className="create-card d-md-flex d-sm-block container">
         <div
-          className="card-container mb-5 init-card"
+          className="card-container mb-5 process-card-bg"
           style={{ backgroundColor: "#ffffff" }}
         >
           <CardProcess txn={data.txn} id={id} />
