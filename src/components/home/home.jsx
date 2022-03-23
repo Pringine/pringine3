@@ -24,11 +24,11 @@ export default class Home extends Component {
 
   async componentDidMount() {
     // // Get available countries
-    const {data: availableCountries} = await axios.get(`${config.localUrl}/country/available/`);
+    const {data: availableCountries} = await axios.get(`${config.baseUrl}/country/available/`);
     this.setState({availableCountries})
 
     // Get Providers
-    const {data: providers} = await axios.get(`${config.localUrl}/provider/`);
+    const {data: providers} = await axios.get(`${config.baseUrl}/provider/`);
     this.setState({providers})
 
     this.validate();

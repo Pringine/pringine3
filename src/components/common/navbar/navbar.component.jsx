@@ -6,7 +6,7 @@ export const NavigationBar = () => {
 
   return (
     <>
-      <Navbar expand="lg" bg="light">
+      <Navbar expand="lg" bg="" variant="dark">
         <Container>
             <Navbar.Brand as={Link} to="/" ><b>Pringine</b></Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />

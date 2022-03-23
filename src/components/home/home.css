@@ -11,7 +11,7 @@
 }
 
 .init-card{
-    background-image:#000;
+    background:#ffffff;
     background-image:  
     radial-gradient(at 69% 30%, hsla(316,100%,74%,1) 0, transparent 50%),  
     radial-gradient(at 99% 0%, hsla(117,100%,56%,1) 0, transparent 50%),  
@@ -20,7 +20,6 @@
     radial-gradient(at 0% 100%, hsla(310,100%,77%,1) 0, transparent 50%),  
     radial-gradient(at 80% 100%, hsla(170,100%,70%,1) 0, transparent 50%),  
     radial-gradient(at 0% 0%, hsla(271,100%,76%,1) 0, transparent 50%);
-    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .card-container{
@@ -49,14 +48,6 @@
 .card-side{
     width: 363px;
     height: 314px;
-    /* background: #FFFFFF;
-    border: 1px solid rgba(0, 0, 0, 0.15); */
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
-    /* padding: 50px; */
-    /* box-sizing: border-box;
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.15); */
 }
 
 .footer{

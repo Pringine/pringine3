@@ -4,7 +4,7 @@ App{
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #f7f7f7;
+  /* background-color: #f7f7f7; */
 }
 
 h1 {
@@ -13,4 +13,9 @@ h1 {
 
 .navigationbar, .footer{
   height: 50px;
+}
+
+.footer{
+  background-color: #000000;
+  color: #ffffff;
 }

@@ -40,7 +40,7 @@ td a{
 .txn-progress, .progress{
     height: 30px !important;
     border-radius: 5px;
-    margin-bottom: 50px;
+    margin-bottom: 80px;
 }
 
 .txn-code-container{

@@ -7,15 +7,22 @@ export const BlockButton = ({ text, url, id, type, data }) => {
     <Button
       as={Link}
       to={id ? `/${url}/${id}` : `/${url}`}
-      variant="dark"
+      variant="light"
       size="md"
+      // variant="outline-light"
     >
       {text}
     </Button>
   );
   if (type) {
     renderBotton = (
-      <Button variant="dark" size="md" type={type} disabled={data.errors}>
+      <Button
+        variant="light"
+        // variant="outline-light"
+        size="md"
+        type={type}
+        disabled={data.errors}
+      >
         {text}
       </Button>
     );

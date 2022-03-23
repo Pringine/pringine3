@@ -7,7 +7,7 @@ export const ViewTxn = ({id}) => {
   return (
     <div className="view-txn">
         <div className="qrcode">
-          <img src={qrcode} alt="qrcode" />
+          <img className='img-fluid' src={qrcode} alt="qrcode" />
         </div>
         <BlockButton url='feedback' text='Feedback' id={id} />
     </div>

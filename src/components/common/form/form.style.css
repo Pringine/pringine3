@@ -1,3 +1,9 @@
 .card-form{
     padding: 0 30px;
 }
+
+select.form-select, input.form-control{
+    background: transparent;
+    border: 1px #ffffff solid;
+    color: #ffffff;
+}

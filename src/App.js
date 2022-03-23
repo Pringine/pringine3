@@ -26,7 +26,7 @@ function App() {
         <Route path="*" element={<Navigate replace to="/" />} />
       </Routes>
 
-      <div className="footer">
+      <div className="pt-3 footer">
         <FooterBar />
       </div>
     </div>

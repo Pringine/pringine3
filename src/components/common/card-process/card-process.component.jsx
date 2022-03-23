@@ -9,32 +9,36 @@ import ProgressBar from "react-bootstrap/ProgressBar";
 export const CardProcess = ({ txn }) => {
   const [data, setData] = useState({ provider: {} });
 
-  // const provider = data.providers.length
-  //   ? data.providers.filter((prov) => prov.id === txn.provider)[0]
-  //   : [];
-
-  useEffect(async () => {
+  useEffect(() => {
     if (txn.provider) {
-      const { data: provider } = await axios.get(
-        `${config.localUrl}/provider/${txn.provider}/`
-      );
-
-      // set provider
-      setData({ provider });
+      const getProvider = async() =>{
+        const { data: provider } = await axios.get(
+          `${config.baseUrl}/provider/${txn.provider}/`
+        )
+        setData({ provider });
+      }
+      getProvider()
     }
   }, [txn]);
 
   // Completion rate
   const now = 80;
 
+  const status = {
+    V: 'verifying',
+    P: 'pending',
+    S: 'successful',
+    F: 'failed'
+  }
+
   return (
     <div className="process-card">
       <div className="process-stat">
         <div className="process-card-amount">
           <div className="card-fiat">
-            {txn.amount ? parseFloat(txn.amount).toLocaleString() : ""}
+            Ξ {txn.amount ? parseFloat(txn.amount).toLocaleString() : ""}
           </div>
-          <div className="card-crypto">Ξ {txn.eth}</div>
+          {/* <div className="card-crypto">Ξ {txn.eth}</div> */}
           <div className="timestamp mt-2">
             <Table borderless size="sm">
               <tbody>
@@ -42,37 +46,37 @@ export const CardProcess = ({ txn }) => {
                   <td>
                     <span>Txn id:</span>
                   </td>
-                  <td>{txn.id}</td>
+                  <td>{txn.txn_id}</td>
                 </tr>
-                <tr>
+                {/* <tr>
                   <td>
                     <span>Category:</span>
                   </td>
                   <td>{txn.category}</td>
-                </tr>
-                <tr>
+                </tr> */}
+                {/* <tr>
                   <td>
                     <span>Country:</span>
                   </td>
                   <td>{txn.country}</td>
-                </tr>
+                </tr> */}
                 <tr>
                   <td>
                     <span>Number:</span>
                   </td>
-                  <td>{txn.utilNumber}</td>
+                  <td>{txn.hidden_phone}</td>
                 </tr>
                 <tr>
                   <td>
                     <span>Timestamp:</span>
                   </td>
-                  <td>{txn.date}</td>
+                  <td>{txn.created_at}</td>
                 </tr>
                 <tr>
                   <td>
                     <span>Status:</span>
                   </td>
-                  <td>{txn.status}</td>
+                  <td>{status[txn.status]}</td>
                 </tr>
                 <tr>
                   <td>

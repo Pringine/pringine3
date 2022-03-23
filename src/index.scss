@@ -9,7 +9,14 @@ body {
   font-family: 'Work Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f7f7f7;
+  // background-color: #f7f7f7;
+  background:#000000;
+  background-image:  
+  radial-gradient(at 25% 23%, hsla(0,0%,10%,1) 0, transparent 51%),  
+  radial-gradient(at 22% 57%, hsla(0,0%,0%,1) 0, transparent 58%),  
+  radial-gradient(at 81% 19%, hsla(0,100%,13%,1) 0, transparent 49%),  
+  radial-gradient(at 72% 19%, hsla(0,0%,0%,1) 0, transparent 56%),  
+  radial-gradient(at 78% 88%, hsla(23,36%,16%,1) 0, transparent 44%);
 }
 
 h1 {
