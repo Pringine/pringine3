@@ -2,23 +2,25 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-export const BlockButton = ({ text, url, id, type, data }) => {
+export const BlockButton = ({ text, url, id, type, data, onClick }) => {
   let renderBotton = (
+    // For navigation buttons
     <Button
       as={Link}
       to={id ? `/${url}/${id}` : `/${url}`}
       variant="light"
       size="md"
-      // variant="outline-light"
+      onClick={onClick}
     >
       {text}
     </Button>
   );
+
+  // For submit buttons
   if (type) {
     renderBotton = (
       <Button
         variant="light"
-        // variant="outline-light"
         size="md"
         type={type}
         disabled={data.errors}
