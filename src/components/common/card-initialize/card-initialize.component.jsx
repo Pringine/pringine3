@@ -1,8 +1,6 @@
 import React from 'react';
 import './card-initialize.style.css';
 
-import cardImg from '../../../assets/img/card-img.png';
-
 export const Card = ({cardData}) => {
 
   let {card, selectedProvider: provider, selectedCountry: country} = cardData

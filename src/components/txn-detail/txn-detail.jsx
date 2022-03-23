@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { CardProcess } from "../common/card-process/card-process.component";
 import { ViewTxn } from "../common/view-txn/view-txn.component";
 import { useParams } from "react-router-dom";
-import { Txns } from "../../services/transactions.service";
 import config from "../../config.json";
 
 import "./txn-detail.css";

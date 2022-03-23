@@ -112,7 +112,7 @@ class Home extends Component {
     const { card } = this.state;
     card[name] = input.value;
 
-    if (name == "amount") card[name] = parseInt(input.value);
+    if (name === "amount") card[name] = parseInt(input.value);
 
     this.setState({ card });
 
@@ -126,34 +126,31 @@ class Home extends Component {
     this.setState({ errors });
 
     // Submit form
-    const txn = await axios
-      .post(`${config.baseUrl}/txn/`, this.state.card)
-      .then((res) => {
-        // console.log(res);
-
-        // Reset form
-        this.setState({
-          card: {
-            country: "",
-            provider: "",
-            phone: "",
-            amount: "",
-            hash: "0x74F0D96c19A8601E01e534495925331A535362FC",
-          },
-        });
-
-        // Toast for success
-        toast("Processing transaction", {
-          position: "bottom-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-        });
-
-        this.props.navigate(`/verify/${res.data.txn_id}`);
+    await axios.post(`${config.baseUrl}/txn/`, this.state.card).then((res) => {
+      // Reset form
+      this.setState({
+        card: {
+          country: "",
+          provider: "",
+          phone: "",
+          amount: "",
+          hash: "0x74F0D96c19A8601E01e534495925331A535362FC",
+        },
       });
+
+      // Toast for success
+      toast("Processing transaction", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
+
+      // Redirect with HOC component
+      this.props.navigate(`/verify/${res.data.txn_id}`);
+    });
   };
 
   render() {

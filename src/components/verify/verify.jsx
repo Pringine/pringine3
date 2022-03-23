@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Form, Table, FormControl, Button, InputGroup } from "react-bootstrap";
-import { Txns } from "../../services/transactions.service";
 import { useNavigate } from "react-router-dom";
 import config from "../../config.json";
 
@@ -24,7 +23,7 @@ const Verify = () => {
     };
 
     getTxn();
-  }, []);
+  }, [data]);
 
   const status = {
     V: "verifying",
