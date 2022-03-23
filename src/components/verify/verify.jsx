@@ -10,26 +10,43 @@ import axios from "axios";
 const Verify = () => {
   const navigate = useNavigate();
 
-  const [data, setData] = useState({ txns: [] });
+  const [data, setData] = useState({ txns: [], search: "" });
 
   // const id = parseInt(useParams().id);
 
   useEffect(() => {
-    const getTxn = async() =>{
+    const getTxn = async () => {
       // filter transaction
       const { data: txns } = await axios.get(`${config.baseUrl}/txn/list/`);
-      setData({ txns });
-    }
+      const state = {...data}
+      state.txns = txns
+      setData({ ...state });
+    };
 
-    getTxn()
+    getTxn();
   }, []);
 
   const status = {
-    V: 'verifying',
-    P: 'pending',
-    S: 'successful',
-    F: 'failed'
-  }
+    V: "verifying",
+    P: "pending",
+    S: "successful",
+    F: "failed",
+  };
+
+  const handleChange = (e) => {
+    e.preventDefault();
+    const initial = { ...data };
+    initial.search = e.target.value;
+    setData({ ...initial });
+  };
+
+  const searchTransaction = async () => {
+    // console.log(data);
+    const { data: txns } = await axios.get(`${config.baseUrl}/txn/list/?search=${data.search}`);
+    const state = {...data}
+    state.txns = txns
+    setData({ ...state });
+  };
 
   return (
     <div className="verify">
@@ -41,8 +58,14 @@ const Verify = () => {
                 placeholder="Search: transaction id, transaction hash, phone number, gift card number... etc"
                 aria-label="Search transaction"
                 aria-describedby="Transaction"
+                onChange={(e) => handleChange(e)}
+                value={data.search}
               />
-              <Button variant="light" id="search-button">
+              <Button
+                variant="light"
+                id="search-button"
+                onClick={() => searchTransaction()}
+              >
                 Search
               </Button>
             </InputGroup>

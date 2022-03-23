@@ -7,8 +7,7 @@ import config from "../../config.json";
 
 import "./home.css";
 import { toast, ToastContainer } from "react-toastify";
-import { Navigate } from "react-router-dom";
-import { withRouter } from "../HOC/withRouter";
+import { withRouter } from "../common/HOC/withRouter";
 
 class Home extends Component {
   constructor(props) {
