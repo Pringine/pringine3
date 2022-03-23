@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export const BlockButton = ({ text, url, id, type, data, onClick }) => {
   let renderBotton = (
     // For navigation buttons
-    <Button variant="light" size="md" onClick={onClick} type={type}>
+    <Button variant="light" size="md" type={type} onClick={onClick}>
       {text}
     </Button>
   );

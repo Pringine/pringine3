@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 import { toast, ToastContainer } from "react-toastify";
 import { BlockButton } from "../common/block-button/block-button.component";
-import config from '../../config.json'
+import config from "../../config.json";
 
 import "./contact.css";
 
@@ -19,7 +19,7 @@ const Contact = () => {
     setData({ ...fb });
   };
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     axios.post(`${config.baseUrl}/contact/`, data).then(
       // Toast for success
@@ -34,13 +34,12 @@ const Contact = () => {
     );
     // Reset form
     setData({ email: "", message: "" });
-
-    // Toast for success
   };
+
   return (
     <div className="feedback-container">
       <div className="feedback-form justify-content-md-center row">
-        <Form className="col-md-6 col-sm-6"  onSubmit={(e) => handleSubmit(e)} >
+        <Form className="col-md-6 col-sm-6" onSubmit={(e) => handleSubmit(e)}>
           <div className="row">
             <div className="col-12">
               <Form.Group className="mb-4" controlId="formBasicEmail">
@@ -67,7 +66,7 @@ const Contact = () => {
               </Form.Group>
             </div>
           </div>
-          <BlockButton text="Submit" type="Submit"/>
+          <BlockButton text="Submit" type="Submit" />
           <ToastContainer />
         </Form>
       </div>

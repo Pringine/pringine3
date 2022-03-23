@@ -3,12 +3,14 @@ import axios from "axios";
 import Joi from "joi";
 import { Card } from "../common/card-initialize/card-initialize.component";
 import { CardForm } from "../common/form/form.component";
-import config from '../../config.json'
+import config from "../../config.json";
 
 import "./home.css";
+import { toast, ToastContainer } from "react-toastify";
+import { Navigate } from "react-router-dom";
+import { withRouter } from "../HOC/withRouter";
 
-
-export default class Home extends Component {
+class Home extends Component {
   constructor(props) {
     super(props);
 
@@ -17,28 +19,37 @@ export default class Home extends Component {
       availableCountries: [],
       selectedCountry: {},
       selectedProvider: {},
-      card: { country: "", provider: "", phone: "", amount: "" },
+      card: {
+        country: "",
+        provider: "",
+        phone: "",
+        amount: "",
+        hash: "0x74F0D96c19A8601E01e534495925331A535362FC",
+      },
       errors: {},
     };
   }
 
   async componentDidMount() {
     // // Get available countries
-    const {data: availableCountries} = await axios.get(`${config.baseUrl}/country/available/`);
-    this.setState({availableCountries})
+    const { data: availableCountries } = await axios.get(
+      `${config.baseUrl}/country/available/`
+    );
+    this.setState({ availableCountries });
 
     // Get Providers
-    const {data: providers} = await axios.get(`${config.baseUrl}/provider/`);
-    this.setState({providers})
+    const { data: providers } = await axios.get(`${config.baseUrl}/provider/`);
+    this.setState({ providers });
 
     this.validate();
   }
 
   schema = Joi.object({
     phone: Joi.string().required(),
-    amount: Joi.string().required(),
-    country: Joi.string().required(),
-    provider: Joi.string().required(),
+    amount: Joi.number().required(),
+    country: Joi.number().required(),
+    provider: Joi.number().required(),
+    hash: Joi.string().required(),
   });
 
   validate = () => {
@@ -61,18 +72,18 @@ export default class Home extends Component {
 
     // change the value of country in card state
     const { card } = this.state;
-    card.country = countryValue;
+    card.country = parseInt(countryValue);
     this.setState({ card });
 
     // set selectedCountry state
     const selectedCountry = this.state.availableCountries.filter((country) =>
       countryValue.includes(country.id)
     )[0];
-    this.setState({ selectedCountry }, ()=>console.log(this.state));
+    this.setState({ selectedCountry });
 
     // check for errors
-    const errors = this.validate()
-    this.setState({errors})
+    const errors = this.validate();
+    this.setState({ errors });
   };
 
   /**
@@ -84,7 +95,7 @@ export default class Home extends Component {
 
     // change the value of provider in card state
     const { card } = this.state;
-    card.provider = providerValue;
+    card.provider = parseInt(providerValue);
     this.setState({ card });
 
     // set selected provider
@@ -94,36 +105,72 @@ export default class Home extends Component {
     this.setState({ selectedProvider });
 
     // check for errors
-    const errors = this.validate()
-    this.setState({errors})
+    const errors = this.validate();
+    this.setState({ errors });
   };
 
   getText = ({ currentTarget: input }, name) => {
     const { card } = this.state;
     card[name] = input.value;
 
+    if (name == "amount") card[name] = parseInt(input.value);
+
     this.setState({ card });
 
-    const errors = this.validate()
-    this.setState({errors})
+    const errors = this.validate();
+    this.setState({ errors });
   };
 
-  submitForm = (e) => {
+  submitForm = async (e) => {
     e.preventDefault();
-    const errors = this.validate()
-    this.setState({errors})
-    // console.log(this.state);
+    const errors = this.validate();
+    this.setState({ errors });
+
+    // Submit form
+    const txn = await axios
+      .post(`${config.baseUrl}/txn/`, this.state.card)
+      .then((res) => {
+        // console.log(res);
+
+        // Reset form
+        this.setState({
+          card: {
+            country: "",
+            provider: "",
+            phone: "",
+            amount: "",
+            hash: "0x74F0D96c19A8601E01e534495925331A535362FC",
+          },
+        });
+
+        // Toast for success
+        toast("Processing transaction", {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        });
+
+        this.props.navigate(`/verify/${res.data.txn_id}`);
+      });
   };
 
   render() {
     const { background_color } = this.state.selectedProvider;
 
-    let backgroundColor = { background: background_color ? background_color : "" };
+    let backgroundColor = {
+      background: background_color ? background_color : "",
+    };
 
     return (
       <div className="home ">
         <div className="create-card d-md-flex d-sm-block container">
-          <div className="card-container init-card mb-5" style={backgroundColor}>
+          <div
+            className="card-container init-card mb-5"
+            style={backgroundColor}
+          >
             <Card cardData={this.state} />
           </div>
 
@@ -138,6 +185,7 @@ export default class Home extends Component {
                 getText={this.getText}
                 submitForm={this.submitForm}
               />
+              <ToastContainer />
             </div>
           </div>
         </div>
@@ -145,3 +193,5 @@ export default class Home extends Component {
     );
   }
 }
+
+export default withRouter(Home);
