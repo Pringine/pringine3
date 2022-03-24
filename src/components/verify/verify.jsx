@@ -23,7 +23,7 @@ const Verify = () => {
     };
 
     getTxn();
-  }, [data]);
+  }, []);
 
   const status = {
     V: "verifying",
