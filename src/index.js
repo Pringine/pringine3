@@ -3,11 +3,11 @@ import ReactDOM from "react-dom";
 import App from "./App";
 // import reportWebVitals from './reportWebVitals';
 
-import "bootstrap/scss/bootstrap.scss";
+import "bootstrap/dist/css/bootstrap.css";
 // import "bootstrap/scss/_functions.scss";
 // import "bootstrap/scss/_variables.scss";
 
-import "./index.scss";
+import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(

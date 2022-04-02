@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Navbar, Container, Nav, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-// import { BlockButton } from "../block-button/block-button.component";
+import Web3Context from "../../context/web3Context";
 
-const connectWallet = async() =>{
-  const account = await window.ethereum.request({method: "eth_requestAccounts"})
-  console.log(account);
-}
+import "./navbar.css";
+
+const connectWallet = async (provider) => {
+  await provider.request({
+    method: "eth_requestAccounts",
+  });
+};
 
 export const NavigationBar = () => {
+  const web3 = useContext(Web3Context);
   return (
     <>
       <Navbar expand="lg" bg="" variant="dark">
@@ -19,15 +23,31 @@ export const NavigationBar = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
-              <Nav.Link as={Link} to="/verify" className="ms-5">
+              <Nav.Link as={Link} to="/verify" className="ms-md-5">
                 Verify
               </Nav.Link>
-              <Nav.Link as={Link} to="/contact" className="ms-5">
+              <Nav.Link as={Link} to="/contact" className="ms-md-5">
                 Contact Us
               </Nav.Link>
-              <Button variant="light" size="md" className="ms-5" onClick={()=>connectWallet()}>
-                Connect Wallet
-              </Button>
+              {web3.account.wallet.address ? (
+                <Button
+                  variant="light"
+                  size="md"
+                  className="ms-md-5"
+                  disabled={true}
+                >
+                  Connected
+                </Button>
+              ) : (
+                <Button
+                  variant="light"
+                  size="md"
+                  className="ms-md-5"
+                  onClick={() => connectWallet(web3.api.web3Api.provider)}
+                >
+                  Connect Wallet
+                </Button>
+              )}
             </Nav>
           </Navbar.Collapse>
         </Container>

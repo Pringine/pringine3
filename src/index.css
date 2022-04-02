@@ -1,15 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap');
-// 3. Include remainder of required Bootstrap stylesheets
+/* // 3. Include remainder of required Bootstrap stylesheets */
 
-// @import "../node_modules/bootstrap/scss/functions";
-// @import "../node_modules/bootstrap/scss/variables";
+/* // @import "../node_modules/bootstrap/scss/functions";
+// @import "../node_modules/bootstrap/scss/variables"; */
 
 body {
   margin: 0;
   font-family: 'Work Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  // background-color: #f7f7f7;
+  /* // background-color: #f7f7f7; */
   background:#000000;
   background-image:  
   radial-gradient(at 25% 23%, hsla(0,0%,10%,1) 0, transparent 51%),  

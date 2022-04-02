@@ -8,11 +8,11 @@ import config from "../../config.json";
 import "./home.css";
 import { toast, ToastContainer } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import WalletContext from "../context/walletContext";
+import Web3Context from "../context/web3Context";
 
 const Home = () => {
   const navigate = useNavigate();
-  const { wallet } = useContext(WalletContext);
+  const { account } = useContext(Web3Context);
 
   const [state, setState] = useState({
     providers: [],
@@ -24,7 +24,7 @@ const Home = () => {
       provider: "",
       phone: "",
       amount: "",
-      hash: "0x74F0D96c19A8601E01e534495925331A535362FC",
+      hash: "",
     },
     errors: {},
   });
@@ -43,11 +43,14 @@ const Home = () => {
         `${config.baseUrl}/provider/`
       );
       stateData.providers = providers;
+
+      // Get account
+      stateData.card.hash = account.wallet.address;
       setState({ ...stateData });
     };
     fetchData();
     validate();
-  }, []);
+  }, [account.wallet.address]);
 
   const schema = Joi.object({
     phone: Joi.string().required(),
@@ -154,7 +157,7 @@ const Home = () => {
           provider: "",
           phone: "",
           amount: "",
-          hash: "0x74F0D96c19A8601E01e534495925331A535362FC",
+          hash: "",
         },
       });
 
@@ -181,15 +184,22 @@ const Home = () => {
     background: background_color,
   };
 
+  // Disable form when wallet is not connected
+  const disableForm = !account.wallet.address ? true : false;
+
   return (
     <div className="home ">
       <div className="balance container text-end pt-4">
-        <div className="address">{wallet.address}</div>
-        Balance: <i
-          className="fab fa-ethereum"
-          style={{ color: "#fff" }}
-        ></i>{" "}
-        {wallet.balance}
+        {account.wallet.address ? (
+          <>
+            <div className="address">{account.wallet.address}</div>
+            Balance:{" "}
+            <i className="fab fa-ethereum" style={{ color: "#fff" }}></i>&nbsp;
+            {account.wallet.balance}
+          </>
+        ) : (
+          <div className="address">Connect wallet to Top Up</div>
+        )}
       </div>
       <div className="create-card d-md-flex d-sm-block container">
         <div className="card-container init-card mb-5" style={backgroundColor}>
@@ -206,6 +216,7 @@ const Home = () => {
                 getAmount={getText}
                 getPhone={getText}
                 getText={getText}
+                disableForm={disableForm}
                 submitForm={submitForm}
               />
             )}
