@@ -28,7 +28,7 @@ const TxnDetail = () => {
 
   return (
     <div className="home ">
-      <div className="create-card d-md-flex d-sm-block container">
+      <div className="detail-card d-md-flex d-sm-block container">
         <div
           className="card-container mb-5 process-card-bg"
           style={{ backgroundColor: "#ffffff" }}

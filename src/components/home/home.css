@@ -1,56 +1,62 @@
-.home{
-    /* height: calc(100vh-100px); */
-    /* background: #f7f7f7; */
+.home {
+  /* height: calc(100vh-100px); */
+  /* background: #f7f7f7; */
 }
 
-.create-card{
-    height: calc(100vh - 100px);
-    /* display: flex; */
-    justify-content: space-around;
-    align-items: center;
+.create-card {
+  height: calc(100vh - 172px);
+  /* display: flex; */
+  justify-content: space-around;
+  align-items: center;
+}
+.balance {
+  color: #ffffff;
 }
 
-.init-card{
-    background:#ffffff;
-    background-image:  
-    radial-gradient(at 69% 30%, hsla(316,100%,74%,1) 0, transparent 50%),  
-    radial-gradient(at 99% 0%, hsla(117,100%,56%,1) 0, transparent 50%),  
-    radial-gradient(at 0% 50%, hsla(283,85%,93%,1) 0, transparent 50%),  
-    radial-gradient(at 82% 77%, hsla(268,100%,76%,1) 0, transparent 50%),  
-    radial-gradient(at 0% 100%, hsla(310,100%,77%,1) 0, transparent 50%),  
-    radial-gradient(at 80% 100%, hsla(170,100%,70%,1) 0, transparent 50%),  
-    radial-gradient(at 0% 0%, hsla(271,100%,76%,1) 0, transparent 50%);
+.init-card {
+  background: #ffffff;
+  background-image: radial-gradient(
+      at 69% 30%,
+      hsla(316, 100%, 74%, 1) 0,
+      transparent 50%
+    ),
+    radial-gradient(at 99% 0%, hsla(117, 100%, 56%, 1) 0, transparent 50%),
+    radial-gradient(at 0% 50%, hsla(283, 85%, 93%, 1) 0, transparent 50%),
+    radial-gradient(at 82% 77%, hsla(268, 100%, 76%, 1) 0, transparent 50%),
+    radial-gradient(at 0% 100%, hsla(310, 100%, 77%, 1) 0, transparent 50%),
+    radial-gradient(at 80% 100%, hsla(170, 100%, 70%, 1) 0, transparent 50%),
+    radial-gradient(at 0% 0%, hsla(271, 100%, 76%, 1) 0, transparent 50%);
 }
 
-.card-container{
-    height: 320px;
-    width: 500px;
-    /* background: #FFCC00; */
-    box-shadow: 5px 5px 20px 3px rgba(0, 0, 0, 0.15);
-    border-radius: 10px;
-    transition-duration: 0.5s;
+.card-container {
+  height: 320px;
+  width: 500px;
+  /* background: #FFCC00; */
+  box-shadow: 5px 5px 20px 3px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  transition-duration: 0.5s;
 }
 
-.card-container:hover{
-    transition-duration: 0.5s;
-    box-shadow: 5px 5px 30px 10px rgba(0, 0, 0, 0.15);
+.card-container:hover {
+  transition-duration: 0.5s;
+  box-shadow: 5px 5px 30px 10px rgba(0, 0, 0, 0.15);
 }
 
-.form-box{
-    /* margin-top: -3rem; */
+.form-box {
+  /* margin-top: -3rem; */
 }
 
-.country{
-    width: 80%;
-    margin-left: auto;
+.country {
+  width: 80%;
+  margin-left: auto;
 }
 
-.card-side{
-    width: 363px;
-    height: 314px;
+.card-side {
+  width: 363px;
+  height: 314px;
 }
 
-.footer{
-    position: absolute;
-    bottom: 0;
+.footer {
+  position: absolute;
+  bottom: 0;
 }
